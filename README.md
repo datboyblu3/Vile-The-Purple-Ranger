@@ -12,7 +12,7 @@ This project will be built on top of proxmox as the virtualization host and usin
 - [Install the Terraform CLI](#install-the-terraform-cli)
 - [Terraform Basics](#terraform-basics)
 
-## Semantic Versioning :mage:
+## Semantic Versioning
 
 This project is going to utilize the semantic versioning for its tagging.
 
