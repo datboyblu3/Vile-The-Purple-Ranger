@@ -119,5 +119,3 @@ If you lose this file, you will lose the knowledge of your infrastructure.
 ### Terraform Directory
 
 `.terraform` directory contains binaries of terraform providers
-
-
