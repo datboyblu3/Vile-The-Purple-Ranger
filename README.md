@@ -98,7 +98,6 @@ If you receive an Access Denied message when deleting, verify your permissions, 
 
 Troubleshooting tips:
 - https://saturncloud.io/blog/troubleshooting-s3-error-access-denied-when-calling-the-listbuckets-operation/
-- https://docs.aws.amazon.com/AmazonS3/latest/userguide/troubleshoot-403-errors.html
 
 ### Terraform Lock Files
 
