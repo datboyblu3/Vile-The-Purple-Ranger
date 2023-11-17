@@ -1,0 +1,3 @@
+[submodule "lab/ansible/roles/wazuh-ansible"]
+	path = lab/ansible/roles/wazuh-ansible
+	url = git@github.com:wazuh/wazuh-ansible.git
