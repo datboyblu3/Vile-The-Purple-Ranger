@@ -4,6 +4,8 @@
 
 Using Terraform and Ansible to build and configure the overall infrastructure, this repo will be a cyber range for red teams to carry out attacks and for blue teams to counter with detections and mitigations. Thus engaging in a full on purple team effort. Build your skills to frustrate and break the spirits of your adversaries, making any attack on your infrastructure a truly *Vile* endeavor for all who dare to challenge you.
 
+This project will be built on top of proxmox as the 
+
 ## Semantic Versioning :mage:
 
 This project is going to utilize the semantic versioning for its tagging.
@@ -25,7 +27,6 @@ Additional labels for pre-release and build metadata are available as extensions
 The Terraform CLI installation instructions have changed due to gpg keyring changes. So we needed to refer to the latest install CLI instructions via Terraform Documentation and change the scripting for install.
 
 [Install the Terraform CLI](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
-
 
 ### Considerations for Linux Distribution
 
