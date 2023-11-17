@@ -8,7 +8,9 @@ This project will be built on top of proxmox as the virtualization host and usin
 
 # Table of Contents
 
-[Semantic Versioning](Semantic-Versioning)
+- [Semantic Versioning](Semantic-Versioning)
+- [Install the Terraform CLI](Install-the-Terraform-CLI)
+- [Terraform Basics](Terraform-Basics)
 
 ## Semantic Versioning :mage:
 
