@@ -19,5 +19,38 @@ The general format:
 - **PATCH** version when you make backward compatible bug fixes
 Additional labels for pre-release and build metadata are available as extensions to the MAJOR.MINOR.PATCH format.
 
+## Install the Terraform CLI
+
+### Considerations with the Terraform CLI changes
+The Terraform CLI installation instructions have changed due to gpg keyring changes. So we needed to refer to the latest install CLI instructions via Terraform Documentation and change the scripting for install.
+
+[Install the Terraform CLI](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
+
+
+### Considerations for Linux Distribution
+
+This project is built against Ubuntu. Please consider verifying your Linux Distribution and change according to your distribution needs
+
+[How to Check OS Version in Linux](
+https://www.cyberciti.biz/faq/how-to-check-os-version-in-linux-command-line/
+)
+
+Example of checking OS version:
+```bash
+$ cat /etc/os-release
+
+PRETTY_NAME="Ubuntu 22.04.3 LTS"
+NAME="Ubuntu"
+VERSION_ID="22.04"
+VERSION="22.04.3 LTS (Jammy Jellyfish)"
+VERSION_CODENAME=jammy
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=jammy
+```
 
 
