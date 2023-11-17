@@ -11,6 +11,10 @@ Using Terraform and Ansible to build and configure the overall infrastructure, t
 - [Install the Terraform CLI](#install-the-terraform-cli)
 - [Terraform Basics](#terraform-basics)
 
+
+## Project Mock Up
+
+
 ## Semantic Versioning
 
 This project is going to utilize the semantic versioning for its tagging.
