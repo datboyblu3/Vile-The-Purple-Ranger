@@ -14,7 +14,7 @@ Using Terraform and Ansible to build and configure the overall infrastructure, t
 
 ## Project Mock Up
 
-![](https://github.com/datboyblu3/Vile-The-Purple-Ranger/blob/main/attachements/Purple_Team_Lab-Page-2.jpg)
+![](https://github.com/datboyblu3/Vile-The-Purple-Ranger/blob/main/attachements/Project%20Topology.png)
 
 ## Semantic Versioning
 
