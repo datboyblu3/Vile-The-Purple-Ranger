@@ -7,8 +7,10 @@ Using Terraform and Ansible to build and configure the overall infrastructure, t
 # Table of Contents
 
 - [Project Mock Up](#project-mock-up)
-  -[Wazuh Deployment](#wazuh-deployment)
-  -[Lab Topology](#lab-topology)
+  
+  - [Wazuh Deployment](#wazuh-deployment)
+  
+  - [Lab Topology](#lab-topology)
 - [Semantic Versioning](#semantic-versioning)
 - [Install the Terraform CLI](#install-the-terraform-cli)
 - [Terraform Basics](#terraform-basics)
@@ -22,7 +24,7 @@ Using Terraform and Ansible to build and configure the overall infrastructure, t
 
 ### Lab Topology
 
-![](https://github.com/datboyblu3/Vile-The-Purple-Ranger/blob/main/attachements/Project%20Topology.png)
+![](https://github.com/datboyblu3/Vile-The-Purple-Ranger/blob/main/attachements/lab_topology.gif)
 
 ## Semantic Versioning
 
