@@ -36,9 +36,16 @@ variable "image" {
 }
 
 
-# The size we want our droplets to be. 
+# The size of our Wazuh droplet
 # Can view slugs (valid options) https://slugs.do-api.dev/
-variable "droplet_size" {
+variable "wazuh_droplet_size" {
     type = string
     default = "s-4vcpu-8gb"
+}
+
+
+# The size of our nginx droplet
+variable "nginx_droplet_size"{
+	type = string
+    default = "s-1vcpu-1gb"
 }
