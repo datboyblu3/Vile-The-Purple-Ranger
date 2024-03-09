@@ -1,3 +1,8 @@
+################################################################################
+# Create 2 servers with nginx installed on one and nginx installed on another  #
+################################################################################
+
+
 terraform {
   required_providers {
     digitalocean = {
@@ -8,12 +13,11 @@ terraform {
 }
 
 
-
 # Create a wazuh server
 resource "digitalocean_droplet" "wazuh" {
-  image     = "ubuntu-20-04-x64"
-  name      = "wazuh"
-  region    = "nyc1"
-  size      = "s-1vcpu-1gb"
+  image     = var.image
+  name      = var.name
+  region    = var.region
+  size      = var.size
   ssh       = ssh_keys = [data.digitalocean_ssh_key.wazuh.id]
 }
