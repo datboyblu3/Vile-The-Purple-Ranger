@@ -32,6 +32,23 @@ resource "digitalocean_droplet" "nginx" {
   size      = var.nginx_droplet_size
   ssh       = ssh_keys = [data.digitalocean_ssh_key.wazuh.id]
   vpc_uuid = digitalocean_vpc.vpc.id
+
+
+
+  provisioner "remote-exec" {
+    inline = ["echo 'Wait until SSH is ready'"]
+
+    connection {
+      type        = "ssh"
+      user        = local.ssh_user
+      private_key = file(local.private_key_path)
+      host        = self.network_interface.0.access_config.0.nat_ip
+    }
+  }
+
+  provisioner "local-exec" {
+    command = "ansible-playbook  -i ${self.network_interface.0.access_config.0.nat_ip}, --private-key ${local.private_key_path} nginx.yaml"
+  }
 }
 
 #Create an internet gateway
@@ -42,6 +59,24 @@ resource "digitalocean_droplet" "gateway"{
   size      = var.nginx_droplet_size
   ssh       = ssh_keys = [data.digitalocean_ssh_key.gateway.id]
   vpc_uuid = digitalocean_vpc.vpc.id
+
+
+
+
+  provisioner "remote-exec" {
+    inline = ["echo 'Wait until SSH is ready'"]
+
+    connection {
+      type        = "ssh"
+      user        = local.ssh_user
+      private_key = file(local.private_key_path)
+      host        = self.network_interface.0.access_config.0.nat_ip
+    }
+  }
+
+  provisioner "local-exec" {
+    command = "ansible-playbook  -i ${self.network_interface.0.access_config.0.nat_ip}, --private-key ${local.private_key_path} server_config.yaml" #CHANGE THIS TO REFLECT YOUR INFRASTRUCTURE
+  }
 }
 
 
