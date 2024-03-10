@@ -3,7 +3,7 @@
 ################################################################################
 resource "digitalocean_vpc" "vpc"{
     # The human friendly name of our VPC.
-    name = "minimal-vpc"
+    name = "purpleteam-vpc"
 
     # The region to deploy our VPC to.
     region = var.region

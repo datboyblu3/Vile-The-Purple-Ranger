@@ -34,6 +34,16 @@ resource "digitalocean_droplet" "nginx" {
   vpc_uuid = digitalocean_vpc.vpc.id
 }
 
+#Create an internet gateway
+resource "digitalocean_droplet" "gateway"{
+  image     = var.image
+  name      = var.name
+  region    = var.region
+  size      = var.nginx_droplet_size
+  ssh       = ssh_keys = [data.digitalocean_ssh_key.gateway.id]
+  vpc_uuid = digitalocean_vpc.vpc.id
+}
+
 
 ################################################################################
 # Create a certificate for SSL for our Load Balancer                           #
