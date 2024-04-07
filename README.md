@@ -12,6 +12,7 @@ Using Terraform and Ansible to build and configure the overall infrastructure, t
   
   - [Lab Topology](#lab-topology)
 - [Semantic Versioning](#semantic-versioning)
+- [Common Configuration Errors](#common-configuration-errors)
 - [Install the Terraform CLI](#install-the-terraform-cli)
 - [Terraform Basics](#terraform-basics)
 
@@ -40,6 +41,32 @@ The general format:
 - **MINOR** version when you add functionality in a backward compatible manner
 - **PATCH** version when you make backward compatible bug fixes
 Additional labels for pre-release and build metadata are available as extensions to the MAJOR.MINOR.PATCH format.
+
+
+## Common Configuration Errors
+
+### Problem 1: "Wazuh dashboard is not ready yet"
+
+**Execute the below command on the Wazuh Indexer**
+```python3
+cat /var/log/wazuh-indexer/wazuh-cluster.log | grep -i -E "error|warn"
+```
+
+![indexer-error-warn](https://github.com/datboyblu3/Vile-The-Purple-Ranger/assets/95729902/1d2cff2b-554a-4d49-94db-9b42000c0d66)
+
+**Execute command on the Wazuh Dashboard**
+```python3
+cat /usr/share/wazuh-dashboard/data/wazuh/logs/wazuhapp.log | grep -i -E "error|warn"
+```
+![dashboard-error](https://github.com/datboyblu3/Vile-The-Purple-Ranger/assets/95729902/7925e325-0b31-4e3d-9c4e-8efcccd236bd)
+
+
+The first error indicates an authentication issue with the kibanaserver user. The second shows there is a connection error on the dashboard.
+
+### Solution
+Consult the [following password management documentation](https://documentation.wazuh.com/current/user-manual/user-administration/password-management.html#changing-the-passwords-in-a-distributed-environment) to fix the issue. Follow step 3 of "Changing the passwords in a distributed environment"
+
+
 
 ## Install the Terraform CLI
 
