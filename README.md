@@ -15,7 +15,7 @@ Using Terraform and Ansible to build and configure the overall infrastructure, t
 - [Common Configuration Errors](#common-configuration-errors)
 - [Install the Terraform CLI](#install-the-terraform-cli)
 - [Terraform Basics](#terraform-basics)
-- [Troubleshooting](Troubleshooting)
+- [Troubleshooting](#troubleshooting)
 
 
 ## Project Mock Up
