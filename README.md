@@ -169,10 +169,31 @@ If you lose this file, you will lose the knowledge of your infrastructure.
 
 ## Troubleshooting
 
-**Tailscale command not recognized on Macbook M2**
+**1. Tailscale command not recognized on Macbook M2**
 Create a temp alias for tailscale
 ```
 alias tailscale /Applications/Tailscale.app/Contents/MacOS/Tailscale
 ```
+
+**2.  Error: Error deleting SSH key: DELETE https://api.digitalocean.com/v2/account/keys/BLAH**
+
+This error came up while attempting to create the SSH key and store it in DigitalOcean. I deleted "HackeOps" and "Dev SSH Key" and ran the below command without issue.
+
+```
+terraform apply -auto-approve -var "do_token=${DO_PAT}"
+```
+
+Also, verify the name in the CLOUD_SERVICE_PROVIDER_NAME_ssh_key resource, verify the name of the key is the same SSH key name you provided when uploading your SSH key.
+
+
+Code 
+![image](https://github.com/datboyblu3/Vile-The-Purple-Ranger/assets/95729902/fc429eb5-dbb0-44f7-8dcf-15bbb46f899d)
+
+DigitalOcean
+![image](https://github.com/datboyblu3/Vile-The-Purple-Ranger/assets/95729902/39962ecf-94d5-4c57-8d15-5570818012ec)
+
+
+
+
 
 
