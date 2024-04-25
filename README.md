@@ -166,3 +166,13 @@ If you lose this file, you will lose the knowledge of your infrastructure.
 ### Terraform Directory
 
 `.terraform` directory contains binaries of terraform providers
+
+## Troubleshooting
+
+**Tailscale command not recognized on Macbook M2**
+Create a temp alias for tailscale
+```
+alias tailscale /Applications/Tailscale.app/Contents/MacOS/Tailscale
+```
+
+
