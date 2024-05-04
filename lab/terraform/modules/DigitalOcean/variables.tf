@@ -5,7 +5,11 @@
 
 
 # Our DigitalOcean API token.
-variable do_token {}
+variable "do_token" {
+  description = "Digital Ocean API Key"
+  type        = string
+  sensitive   = true
+}
 
 
 # Name of your SSH Key as it appears in the DigitalOcean dashboard
