@@ -14,7 +14,7 @@ terraform {
 
 
 # Create a wazuh server
-resource "digitalocean_droplet" "wazuh" {
+resource "digitalocean_droplet" "wazuh_server" {
   image     = var.image
   name      = var.name
   region    = var.region
@@ -24,8 +24,8 @@ resource "digitalocean_droplet" "wazuh" {
 }
 
 
-# Create a nginx server
-resource "digitalocean_droplet" "nginx" {
+# Create a wazuh indexer server
+resource "digitalocean_droplet" "wazuh_indexer" {
   image     = var.image
   name      = var.name
   region    = var.region
@@ -46,7 +46,7 @@ resource "digitalocean_droplet" "nginx" {
     }
   }
 
-  provisioner "local-exec" {
+  provisioner "local-exec" { # CHANGE TO INSTALL THE INDEXER!
     command = "ansible-playbook  -i ${self.network_interface.0.access_config.0.nat_ip}, --private-key ${local.private_key_path} nginx.yaml"
   }
 }
