@@ -1,14 +1,16 @@
-resource "pwddigitalocean_ssh_key" "ssh_key" {
+######################################################################################
+# Creates three droplets the wazuh indexer, server and dashboard. And the SSH keys #
+######################################################################################
+resource "digitalocean_ssh_key" "ssh_key" {
   name       = "PurpleTeam"
   public_key = file("~/.ssh/purpleteam.pub")
 }
 
-
 resource "digitalocean_droplet" "indexer" {
-  image              = "ubuntu-20-04-x64"
   name               = "wazuh_indexer"
-  region             = "nyc1"
-  size               = "s-2vcpu-4gb"
+  region             = var.region
+  size               = var.size
+  image              = var.image
   tags               = [digitalocean_tag.purple_team_project.id]
   ssh_keys = [
     digitalocean_ssh_key.ssh_key.fingerprint
@@ -44,10 +46,10 @@ resource "digitalocean_droplet" "indexer" {
 
 
 resource "digitalocean_droplet" "server" {
-  image              = "ubuntu-20-04-x64"
   name               = "wazuh_server"
-  region             = "nyc1"
-  size               = "s-2vcpu-4gb"
+  region             = var.region
+  size               = var.size
+  image              = var.image
   tags               = [digitalocean_tag.purple_team_project.id]
   ssh_keys = [
     digitalocean_ssh_key.ssh_key.fingerprint
@@ -83,10 +85,10 @@ resource "digitalocean_droplet" "server" {
 
 
 resource "digitalocean_droplet" "dashboard" {
-  image              = "ubuntu-20-04-x64"
   name               = "wazuh_dashboard"
-  region             = "nyc1"
-  size               = "s-2vcpu-4gb"
+  region             = var.region
+  size               = var.size
+  image              = var.image
   tags               = [digitalocean_tag.purple_team_project.id]
   ssh_keys = [
     digitalocean_ssh_key.ssh_key.fingerprint
@@ -107,11 +109,11 @@ resource "digitalocean_droplet" "dashboard" {
       "sudo apt install curl",
       "sudo apt install net-tools",
       "sudo adduser --disabled-password --gecos '' dash",
-      "sudo mkdir -p /home/serv/.ssh",
-      "sudo touch /home/serv/.ssh/authorized_keys",
+      "sudo mkdir -p /home/dash/.ssh",
+      "sudo touch /home/dash/.ssh/authorized_keys",
       "sudo echo '${file("~/.ssh/purpleteam.pub")}' > authorized_keys",
       "sudo mv authorized_keys /home/dash/.ssh",
-      "sudo chown -R serv:serv /home/dash/.ssh",
+      "sudo chown -R dash:dash /home/dash/.ssh",
       "sudo chmod 700 /home/dash/.ssh",
       "sudo chmod 600 /home/dash/.ssh/authorized_keys",
       "sudo usermod -aG sudo dash",
@@ -119,5 +121,3 @@ resource "digitalocean_droplet" "dashboard" {
     ]
   }
 }
-
-
