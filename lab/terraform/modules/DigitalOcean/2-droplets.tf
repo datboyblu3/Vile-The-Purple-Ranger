@@ -42,6 +42,10 @@ resource "digitalocean_droplet" "indexer" {
       "sudo echo 'dan ALL=(ALL) NOPASSWD:ALL' | sudo tee -a /etc/sudoers"
     ]
   }
+
+  /*provisioner "local-exec" {
+    #command = "ansible-playbook  -i ${self.network_interface.0.access_config.0.nat_ip}, --private-key ${local.private_key_path} nginx.yaml"
+  }*/
 }
 
 
@@ -81,6 +85,11 @@ resource "digitalocean_droplet" "server" {
       "sudo echo 'serv ALL=(ALL) NOPASSWD:ALL' | sudo tee -a /etc/sudoers"
     ]
   }
+
+  /*provisioner "local-exec" {
+    #command = "ansible-playbook  -i ${self.network_interface.0.access_config.0.nat_ip}, --private-key ${local.private_key_path} nginx.yaml"
+  }*/
+
 }
 
 
@@ -120,4 +129,9 @@ resource "digitalocean_droplet" "dashboard" {
       "sudo echo 'dash ALL=(ALL) NOPASSWD:ALL' | sudo tee -a /etc/sudoers"
     ]
   }
+
+  /*provisioner "local-exec" {
+    command = "ansible-playbook  -i ${self.network_interface.0.access_config.0.nat_ip}, --private-key ${local.private_key_path} nginx.yaml"
+  }*/
+
 }

@@ -22,8 +22,22 @@ variable "region" {
 }
 
 # Name of your SSH Key as it appears in the DigitalOcean dashboard
-variable ssh_key {
+variable "private_key_path" {
     type = string
+}
+
+# Private Key Extension
+variable "private_key_extension" {
+  type        = string
+  default     = ""
+  description = "Private key extension"
+}
+
+# Public Key Extensions
+variable "public_key_extension" {
+  type        = string
+  default     = ".pub"
+  description = "Public key extension"
 }
 
 # The operating system image we want to use. 
