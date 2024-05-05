@@ -21,25 +21,6 @@ variable "region" {
     default = "nyc1"
 }
 
-# Name of your SSH Key as it appears in the DigitalOcean dashboard
-variable "private_key_path" {
-    type = string
-}
-
-# Private Key Extension
-variable "private_key_extension" {
-  type        = string
-  default     = ""
-  description = "Private key extension"
-}
-
-# Public Key Extensions
-variable "public_key_extension" {
-  type        = string
-  default     = ".pub"
-  description = "Public key extension"
-}
-
 # The operating system image we want to use. 
 # Can view slugs (valid options) https://slugs.do-api.dev/
 variable "image" {
@@ -48,7 +29,7 @@ variable "image" {
 }
 
 # The size we want our droplet images to be to be.
-variable "droplet_size" {
+variable "size" {
     type = string
     default = "s-2vcpu-4gb-amd"
 }

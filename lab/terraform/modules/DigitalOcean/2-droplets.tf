@@ -1,13 +1,19 @@
 ######################################################################################
 # Creates three droplets the wazuh indexer, server and dashboard. And the SSH keys #
+# Edits to make:
+# 1 - move installs into a bash script
 ######################################################################################
+
+
+
 resource "digitalocean_ssh_key" "ssh_key" {
   name       = "PurpleTeam"
-  public_key = file("~/.ssh/purpleteam.pub")
+  public_key = file("~/.ssh/purple-team.pub")
 }
 
+
 resource "digitalocean_droplet" "indexer" {
-  name               = "wazuh_indexer"
+  name               = "wazuh-indexer"
   region             = var.region
   size               = var.size
   image              = var.image
@@ -21,7 +27,7 @@ resource "digitalocean_droplet" "indexer" {
     type        = "ssh"
     agent       = false
     timeout     = "3m"
-    private_key = file("~/.ssh/purpleteam")
+    private_key = file("~/.ssh/purple-team")
   }
   provisioner "remote-exec" {
     inline = [
@@ -33,7 +39,7 @@ resource "digitalocean_droplet" "indexer" {
       "sudo adduser --disabled-password --gecos '' dan",
       "sudo mkdir -p /home/dan/.ssh",
       "sudo touch /home/dan/.ssh/authorized_keys",
-      "sudo echo '${file("~/.ssh/purpleteam.pub")}' > authorized_keys",
+      "sudo echo '${file("~/.ssh/purple-team.pub")}' > authorized_keys",
       "sudo mv authorized_keys /home/dan/.ssh",
       "sudo chown -R serv:serv /home/dan/.ssh",
       "sudo chmod 700 /home/dan/.ssh",
@@ -50,7 +56,7 @@ resource "digitalocean_droplet" "indexer" {
 
 
 resource "digitalocean_droplet" "server" {
-  name               = "wazuh_server"
+  name               = "wazuh-server"
   region             = var.region
   size               = var.size
   image              = var.image
@@ -64,7 +70,7 @@ resource "digitalocean_droplet" "server" {
     type        = "ssh"
     agent       = false
     timeout     = "3m"
-    private_key = file("~/.ssh/purpleteam")
+    private_key = file("~/.ssh/purple-team")
   }
   provisioner "remote-exec" {
     inline = [
@@ -76,7 +82,7 @@ resource "digitalocean_droplet" "server" {
       "sudo adduser --disabled-password --gecos '' serv",
       "sudo mkdir -p /home/serv/.ssh",
       "sudo touch /home/serv/.ssh/authorized_keys",
-      "sudo echo '${file("~/.ssh/hackerops.pub")}' > authorized_keys",
+      "sudo echo '${file("~/.ssh/purple-team.pub")}' > authorized_keys",
       "sudo mv authorized_keys /home/serv/.ssh",
       "sudo chown -R serv:serv /home/serv/.ssh",
       "sudo chmod 700 /home/serv/.ssh",
@@ -94,7 +100,7 @@ resource "digitalocean_droplet" "server" {
 
 
 resource "digitalocean_droplet" "dashboard" {
-  name               = "wazuh_dashboard"
+  name               = "wazuh-dashboard"
   region             = var.region
   size               = var.size
   image              = var.image
@@ -108,7 +114,7 @@ resource "digitalocean_droplet" "dashboard" {
     type        = "ssh"
     agent       = false
     timeout     = "3m"
-    private_key = file("~/.ssh/purpleteam")
+    private_key = file("~/.ssh/purple-team")
   }
   provisioner "remote-exec" {
     inline = [
@@ -120,7 +126,7 @@ resource "digitalocean_droplet" "dashboard" {
       "sudo adduser --disabled-password --gecos '' dash",
       "sudo mkdir -p /home/dash/.ssh",
       "sudo touch /home/dash/.ssh/authorized_keys",
-      "sudo echo '${file("~/.ssh/purpleteam.pub")}' > authorized_keys",
+      "sudo echo '${file("~/.ssh/purple-team.pub")}' > authorized_keys",
       "sudo mv authorized_keys /home/dash/.ssh",
       "sudo chown -R dash:dash /home/dash/.ssh",
       "sudo chmod 700 /home/dash/.ssh",
