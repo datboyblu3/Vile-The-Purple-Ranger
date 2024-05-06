@@ -6,6 +6,15 @@
 # Step 4: terraform destroy -auto-approve -var "do_token=${DO_PAT}”
 ######################################################################################
 
+terraform{
+  cloud {
+    organization = "Purple_Team_Project"
+    workspaces{
+      name= "DigitalOcean"
+    }
+  }
+}
+
 resource "digitalocean_tag" "purple_team_project" {
   name = "purple_team_project"
 }
